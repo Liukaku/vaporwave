@@ -4,9 +4,9 @@ import Modal from "../components/Modal";
 
 const IndexPage = () => {
   return (
-    <div className="w-10 mx-auto">
-      <Modal />
-      <p>Hello</p>
+    <div className="w-11/12 mx-auto">
+      <Modal name={"Header Text"} />
+      <p className="text-center">Hello</p>
     </div>
   );
 };

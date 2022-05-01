@@ -1,9 +1,13 @@
 import React from "react";
 
-const Modal = () => {
+interface Props {
+  name: String;
+}
+
+const Modal = (props: Props) => {
   return (
-    <div>
-      <div></div>
+    <div className="w-4/6 bg-slate-400 border-2 border-pink-300">
+      <div className="bg-pink-300 h-6">{props.name}</div>
       <p>Fack off</p>
     </div>
   );
