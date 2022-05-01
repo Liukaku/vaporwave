@@ -1,15 +1,14 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Link from "next/link";
+import Head from "next/head";
+import Modal from "../components/Modal";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <div className="w-10 mx-auto">
+      <Modal />
+      <p>Hello</p>
+    </div>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
