@@ -12,7 +12,12 @@ module.exports = {
   },
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      cursor: {
+        grab: "grab",
+        grabbing: "grabbing",
+      },
+    },
   },
   plugins: [],
 };
