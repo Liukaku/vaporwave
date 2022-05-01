@@ -10,3 +10,29 @@
 html {
   font-family: "Retro";
 }
+
+.headerBar {
+  background: linear-gradient(
+    to right,
+    rgb(249, 168, 212) 0%,
+    rgb(249, 168, 212) 10%,
+    #df8cc0 10%,
+    #df8cc0 20%,
+    #c68ac5 20%,
+    #c68ac5 30%,
+    #aa9bcd 30%,
+    #aa9bcd 40%,
+    #8eacd5 40%,
+    #8eacd5 50%,
+    #71bcde 50%,
+    #71bcde 60%,
+    #55cde6 60%,
+    #55cde6 70%,
+    #39deee 70%,
+    #39deee 80%,
+    #1ceef7 80%,
+    #1ceef7 90%,
+    aqua 90%,
+    aqua 100%
+  );
+}
