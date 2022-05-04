@@ -15,7 +15,12 @@ interface Props {
 const Modal = (props: Props) => {
   const [theme, selectTheme] = useContext(CTX);
 
-  const styleTheme = ["headerBarPink", "headerBarBlack", "headerBarGrey"];
+  const headerStyleTheme = ["headerBarPink", "headerBarBlack", "headerBarGrey"];
+  const divBorderStyle = [
+    "bg-pink-300  border-t-pink-200 border-r-pink-200 border-l-pink-400 border-b-pink-400",
+    "bg-zinc-700  border-t-zinc-400 border-r-zinc-400 border-l-zinc-800 border-b-zinc-800",
+    "bg-zinc-300  border-t-zinc-200 border-r-zinc-200 border-l-zinc-400 border-b-zinc-400",
+  ];
 
   const toggleMouse = (e: React.MouseEvent, upDown: Boolean) => {
     const target = e.target as HTMLDivElement;
@@ -37,12 +42,14 @@ const Modal = (props: Props) => {
           animate={{ y: 0, x: 0, opacity: 1, width: "100%" }}
           exit={{ y: 600, x: 100, opacity: 0, width: 0 }}
           transition={{ duration: 1, ease: "anticipate" }}
-          className={`absolute z-50 w-4/6 p-0.5  mx-auto  bg-pink-300 border-2 border-t-pink-200 border-r-pink-200 border-l-pink-400 border-b-pink-400 ${
-            props.display ? `` : `hidden`
-          }`}
+          className={`absolute z-50 w-4/6 p-0.5  mx-auto border-2 ${
+            divBorderStyle[theme]
+          } ${props.display ? `` : `hidden`}`}
         >
           <div
-            className={`headerBar cursor-grab p-1 text-xl leading-none ${styleTheme[theme]}`}
+            className={`headerBar cursor-grab p-1 text-xl leading-none ${
+              theme === 1 ? "text-white" : ""
+            } ${headerStyleTheme[theme]}`}
             onMouseDown={(e) => {
               toggleMouse(e, true);
             }}
