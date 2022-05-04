@@ -17,7 +17,7 @@ const IndexPage = () => {
       console.log("unmounted");
     };
   }, []);
-  const mapArr = ["0", "1", "2"];
+  const mapArr = ["Pink", "Dark", "Grey"];
 
   return (
     <CTX.Provider value={[theme, selectTheme]}>

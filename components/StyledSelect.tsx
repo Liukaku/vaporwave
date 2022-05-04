@@ -12,8 +12,6 @@ const StyledSelect = (props: Props) => {
   const [theme, selectTheme] = useContext(CTX);
   const [dropDown, toggleDropDown] = useState<Boolean>(false);
 
-  const themeType = ["Pink", "Dark", "Grey"];
-
   const titleTheme = [
     "bg-pink-300 border-b-pink-200 border-l-pink-200 border-t-pink-400 border-r-pink-400",
     "bg-zinc-700 border-b-zinc-400 border-l-zinc-400 border-t-zinc-900 border-r-zinc-900 text-white",
@@ -59,7 +57,7 @@ const StyledSelect = (props: Props) => {
                     theme === i ? `border-dotted border border-black` : ``
                   } m-0.5`}
                 >
-                  {i}
+                  {val}
                 </p>
               </div>
             );
