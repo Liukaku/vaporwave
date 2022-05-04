@@ -21,6 +21,11 @@ const Modal = (props: Props) => {
     "bg-zinc-700  border-t-zinc-400 border-r-zinc-400 border-l-zinc-800 border-b-zinc-800",
     "bg-zinc-300  border-t-zinc-200 border-r-zinc-200 border-l-zinc-400 border-b-zinc-400",
   ];
+  const contentBorder = [
+    "border-pink-300",
+    "border-zinc-700",
+    "border-zinc-300",
+  ];
 
   const toggleMouse = (e: React.MouseEvent, upDown: Boolean) => {
     const target = e.target as HTMLDivElement;
@@ -65,7 +70,7 @@ const Modal = (props: Props) => {
               onClickFunc={() => props.updateDisplay(false)}
             />
           </div>
-          <div className="border-t-2 border-pink-300 bg-slate-400">
+          <div className={`border-t-2 ${contentBorder[theme]} bg-slate-400`}>
             <p>Fack off</p>
           </div>
         </motion.div>
