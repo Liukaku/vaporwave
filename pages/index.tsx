@@ -4,9 +4,11 @@ import Modal from "../components/Modal";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Draggable from "react-draggable";
+import { CTX } from "../components/util/store";
 
 const IndexPage = () => {
   const [viewModal, updateModal] = useState<Boolean>(false);
+  const [theme, selectTheme] = useState<Number>(0);
   useEffect(() => {
     console.log("mounted");
     return () => {
@@ -15,28 +17,30 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="text-center">
-        <button
-          onClick={() => {
-            updateModal(true);
-          }}
-        >
-          Hello
-        </button>
+    <CTX.Provider value={[theme, selectTheme]}>
+      <div className="w-11/12 mx-auto">
+        <div className="text-center">
+          <button
+            onClick={() => {
+              updateModal(true);
+            }}
+          >
+            Hello
+          </button>
+        </div>
+        <AnimatePresence>
+          {viewModal ? (
+            <Modal
+              name={"Header Text"}
+              display={true}
+              updateDisplay={updateModal}
+            />
+          ) : (
+            ""
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {viewModal ? (
-          <Modal
-            name={"Header Text"}
-            display={true}
-            updateDisplay={updateModal}
-          />
-        ) : (
-          ""
-        )}
-      </AnimatePresence>
-    </div>
+    </CTX.Provider>
   );
 };
 

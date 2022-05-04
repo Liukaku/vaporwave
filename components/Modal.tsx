@@ -1,8 +1,9 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Icon from "../modalIcon.svg";
 import Draggable from "react-draggable";
 import { motion } from "framer-motion";
+import CTX from "./util/store";
 
 interface Props {
   name: String;
@@ -11,9 +12,13 @@ interface Props {
 }
 
 const Modal = (props: Props) => {
+  const [theme, selectTheme] = useContext(CTX);
+
+  const styleTheme = ["headerBarPink", "headerBarBlack", "headerBarGrey"];
+
   const toggleMouse = (e: React.MouseEvent, upDown: Boolean) => {
     const target = e.target as HTMLDivElement;
-    console.log(e.target);
+    console.log(theme);
     if (upDown) {
       target.classList.add("cursor-grabbing");
       target.classList.remove("cursor-grab");
@@ -27,9 +32,9 @@ const Modal = (props: Props) => {
     <Draggable handle=".headerBar">
       <div>
         <motion.div
-          initial={{ y: 1080, x: 100, opacity: 0, width: 0 }}
-          animate={{ y: 0, x: 0, opacity: 100, width: "100%" }}
-          exit={{ y: 1080, x: 100, opacity: 0, width: 0 }}
+          initial={{ y: 600, x: 100, opacity: 0, width: 0 }}
+          animate={{ y: 0, x: 0, opacity: 1, width: "100%" }}
+          exit={{ y: 600, x: 100, opacity: 0, width: 0 }}
           transition={{ duration: 1, ease: "anticipate" }}
           className={`absolute z-50 w-4/6 p-0.5  mx-auto  bg-pink-300 border-2 border-t-pink-200 border-r-pink-200 border-l-pink-400 border-b-pink-400 ${
             props.display ? `` : `hidden`
