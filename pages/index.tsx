@@ -34,17 +34,6 @@ const IndexPage = () => {
 
         <div className="mx-auto w-20">
           <StyledSelect mapArr={mapArr} />
-          <br />
-          {mapArr.map((val, n) => {
-            return (
-              <StyledButton
-                label={n.toString()}
-                onClickFunc={() => {
-                  selectTheme(n);
-                }}
-              />
-            );
-          })}
         </div>
         <AnimatePresence>
           {viewModal ? (
