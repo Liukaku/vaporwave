@@ -4,11 +4,11 @@ import CTX from "./util/store";
 
 interface Props {
   mapArr: Array<String>;
+  selectFunc: Function;
 }
 
 const StyledSelect = (props: Props) => {
   const [theme, selectTheme] = useContext(CTX);
-  const [selected, select] = useState<String>("Please Select");
   const [dropDown, toggleDropDown] = useState<Boolean>(false);
 
   const themeType = ["Pink", "Dark", "Grey"];
@@ -32,15 +32,14 @@ const StyledSelect = (props: Props) => {
   ];
 
   const makeSelection = (option: number) => {
-    selectTheme(option);
-    select(themeType[option]);
+    props.selectFunc(option);
     toggleDropDown(false);
   };
 
   return (
     <div className={` border-2 ${titleTheme[theme]}`}>
       <div className="flex justify-between">
-        <p className="m-0.5">{selected}</p>
+        <p className="m-0.5">Please Select</p>
         <StyledButton
           label={"V"}
           onClickFunc={() => toggleDropDown(!dropDown)}

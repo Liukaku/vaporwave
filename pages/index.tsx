@@ -33,7 +33,7 @@ const IndexPage = () => {
         </div>
 
         <div className="mx-auto w-20">
-          <StyledSelect mapArr={mapArr} />
+          <StyledSelect mapArr={mapArr} selectFunc={selectTheme} />
         </div>
         <AnimatePresence>
           {viewModal ? (
