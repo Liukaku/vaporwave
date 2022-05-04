@@ -32,8 +32,12 @@ const IndexPage = () => {
           </button>
         </div>
 
-        <div className="mx-auto w-20">
-          <StyledSelect mapArr={mapArr} selectFunc={selectTheme} />
+        <div className="mx-auto w-32">
+          <StyledSelect
+            mapArr={mapArr}
+            selectFunc={selectTheme}
+            label={"Please Select"}
+          />
         </div>
         <AnimatePresence>
           {viewModal ? (

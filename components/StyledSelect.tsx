@@ -5,6 +5,7 @@ import CTX from "./util/store";
 interface Props {
   mapArr: Array<String>;
   selectFunc: Function;
+  label: String;
 }
 
 const StyledSelect = (props: Props) => {
@@ -37,16 +38,16 @@ const StyledSelect = (props: Props) => {
   };
 
   return (
-    <div className={` border-2 ${titleTheme[theme]}`}>
+    <div className={`w-32 border-2 ${titleTheme[theme]}`}>
       <div className="flex justify-between">
-        <p className="m-0.5">Please Select</p>
+        <p className="m-0.5">{props.label}</p>
         <StyledButton
           label={"V"}
           onClickFunc={() => toggleDropDown(!dropDown)}
         />
       </div>
       {dropDown ? (
-        <div className={`absolute w-20 border ${divTheme[theme]}`}>
+        <div className={`absolute w-32 border ${divTheme[theme]}`}>
           {props.mapArr.map((val, i) => {
             return (
               <div
