@@ -28,6 +28,29 @@ const IndexPage = () => {
             Hello
           </button>
         </div>
+        <div>
+          <button
+            onClick={() => {
+              selectTheme(0);
+            }}
+          >
+            0
+          </button>
+          <button
+            onClick={() => {
+              selectTheme(1);
+            }}
+          >
+            1
+          </button>
+          <button
+            onClick={() => {
+              selectTheme(2);
+            }}
+          >
+            2
+          </button>
+        </div>
         <AnimatePresence>
           {viewModal ? (
             <Modal

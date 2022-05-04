@@ -41,7 +41,7 @@ const Modal = (props: Props) => {
           }`}
         >
           <div
-            className="headerBar cursor-grab p-1 text-xl leading-none"
+            className={`headerBar cursor-grab p-1 text-xl leading-none ${styleTheme[theme]}`}
             onMouseDown={(e) => {
               toggleMouse(e, true);
             }}
