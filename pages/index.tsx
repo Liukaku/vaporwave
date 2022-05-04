@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Draggable from "react-draggable";
 import { CTX } from "../components/util/store";
+import StyledButton from "../components/StyledButton";
+import StyledSelect from "../components/StyledSelect";
 
 const IndexPage = () => {
   const [viewModal, updateModal] = useState<Boolean>(false);
@@ -15,6 +17,7 @@ const IndexPage = () => {
       console.log("unmounted");
     };
   }, []);
+  const mapArr = ["0", "1", "2"];
 
   return (
     <CTX.Provider value={[theme, selectTheme]}>
@@ -28,28 +31,20 @@ const IndexPage = () => {
             Hello
           </button>
         </div>
-        <div>
-          <button
-            onClick={() => {
-              selectTheme(0);
-            }}
-          >
-            0
-          </button>
-          <button
-            onClick={() => {
-              selectTheme(1);
-            }}
-          >
-            1
-          </button>
-          <button
-            onClick={() => {
-              selectTheme(2);
-            }}
-          >
-            2
-          </button>
+
+        <div className="mx-auto w-20">
+          <StyledSelect mapArr={mapArr} />
+          <br />
+          {mapArr.map((val, n) => {
+            return (
+              <StyledButton
+                label={n.toString()}
+                onClickFunc={() => {
+                  selectTheme(n);
+                }}
+              />
+            );
+          })}
         </div>
         <AnimatePresence>
           {viewModal ? (
