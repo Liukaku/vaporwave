@@ -4,6 +4,7 @@ import Icon from "../modalIcon.svg";
 import Draggable from "react-draggable";
 import { motion } from "framer-motion";
 import CTX from "./util/store";
+import StyledButton from "./StyledButton";
 
 interface Props {
   name: String;
@@ -52,12 +53,10 @@ const Modal = (props: Props) => {
             <Image className="mr-10" src={Icon} height={"25"} width={"25"} />
             {props.name}
 
-            <button
-              className="h-6 w-6 bg-gray-300 float-right border-2 border-t-gray-100 border-r-gray-100 border-l-gray-600 border-b-gray-600 font-black text-base leading-none"
-              onClick={() => props.updateDisplay(false)}
-            >
-              X
-            </button>
+            <StyledButton
+              label={"X"}
+              onClickFunc={() => props.updateDisplay(false)}
+            />
           </div>
           <div className="border-t-2 border-pink-300 bg-slate-400">
             <p>Fack off</p>
